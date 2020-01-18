@@ -19,7 +19,6 @@
           required
           minlength="4"
           ng-maxlength="10">
-          {{ menuFormCtrl.user.firstName }}
           <span
             ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">
             First Name must be at least 4 characters long
@@ -34,7 +33,6 @@
           required
           minlength="4"
           ng-maxlength="10">
-          {{ menuFormCtrl.user.lastName }}
           <span
             ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">
             Last Name must be at least 4 characters long
@@ -64,7 +62,6 @@
             ng-model="menuFormCtrl.user.menuNumber"
             required
             maxlength="2">
-            {{ menuFormCtrl.user.menuNumber }}
             <span
               ng-if="(regForm.menuNumber.$error.minlength || regForm.menuNumber.$error.required) && regForm.menuNumber.$touched">
               First Name must be at least 4 characters long
