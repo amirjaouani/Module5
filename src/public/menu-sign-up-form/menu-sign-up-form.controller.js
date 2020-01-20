@@ -2,20 +2,41 @@
 "use strict";
 
 angular.module('public')
-.controller('MenuFormController', MenuFormController);
+.controller('SignUpFormController', SignUpFormController);
 
-MenuFormController.$inject = ['menuForm'];
-function MenuFormController(menuForm) {
+SignUpFormController.$inject = ['UserService', 'MenuService'];
+function SignUpFormController(UserService, MenuService) {
   var $ctrl = this;
 
+  $ctrl.signUp = function(event){
 
-  console.log($ctrl);
-  $ctrl.menuForm = menuForm;
+    event.preventDefault();
 
-  $ctrl.submit = function () {
-    $ctrl.completed = true;
+
+    var newUser = {
+
+      firstName: $ctrl.firstName,
+      lastName: $ctrl.lastName,
+      email: $ctrl.email,
+      phoneNumber: $ctrl.phoneNumber,
+      menuCode: $ctrl.menuCode
+    };
+
+
+
+    MenuService.getMenuItems($ctrl.menuCode.toUpperCase())
+        .then(function(result) {
+          newUser.personalDish1 = result;
+          UserService.setUser(newUser);
+          $ctrl.registration = true;
+        })
+        .catch(function(error) {
+          UserService.setUser(newUser);
+          $ctrl.registration = false;
+        });
+
+
   };
 }
-
 
 })();

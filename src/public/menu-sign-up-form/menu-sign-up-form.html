@@ -1,81 +1,60 @@
 <div class="container">
-  <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
-  <div class="text-center">
-    Sign up to the newsletter of the restaurant.
-  </div>
+  <h2>
+    Sign up
+  </h2>
+
+  <form action="#" name="formToSignUp" novalidate>
+
+    <div class="row">
+
+      First name:
+      <input type="text" name="firstName" id="firstName" ng-model="signUpCtrlForm.firstName" placeholder="First Name" class="form-control" style="width:50%" required>
+      <span ng-if="(formToSignUp.firstName.$error.minlength || formToSignUp.firstName.$error.required) && formToSignUp.firstName.$touched"
+            style="color: red">First name is required</span>
+
+      <br>
+      Last Name:
+      <input type="text" name="lastName" id="lastName" ng-model="signUpCtrlForm.lastName" placeholder="Last Name" class="form-control" style="width:50%" required>
+      <span ng-if="(formToSignUp.lastName.$error.minlength || formToSignUp.lastName.$error.required) && formToSignUp.lastName.$touched"
+            style="color: red">Last Name is required</span>
+
+      <br>
+      E-mail:
+      <input type="email" name="email" id="email" ng-model="signUpCtrlForm.email" placeholder="E-mail" minlength="4" class="form-control" style="width:50%" required>
+      <span ng-if="(formToSignUp.email.$invalid || formToSignUp.email.$error.required) && formToSignUp.email.$touched"
+            style="color: red">E-mail address is invalid</span>
 
 
+      <br>
+      Phone Number:
+      <input type="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="###-###-###" ng-model="signUpCtrlForm.phoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})" class="form-control" style="width:50%" required>
+      <span ng-if="formToSignUp.phoneNumber.$invalid && formToSignUp.phoneNumber.$touched"
+            style="color: red">Invalid phone number</span>
 
-<link rel="stylesheet" href="css/form.css">
+
+      <br>
+      Menu Code:
+      <input type="menuCode" name="menuCode" id="menuCode" ng-model="signUpCtrlForm.menuCode" placeholder="Code of the menu" maxlength="2" class="form-control" style="width:50%">
 
 
+      <br>
+      <button class="btn btn-warning" ng-disabled="formToSignUp.$invalid" ng-click="signUpCtrlForm.signUp($event)">Submit</button>
 
-  <fieldset>
-      <legend style="color:white;">Sign Up</legend>
-      <form name='regForm' novalidate>
 
-        <input type="text" name="firstName" placeholder="Fist Name"
-          ng-model="menuFormCtrl.user.firstName"
-          required
-          minlength="4"
-          ng-maxlength="10">
-          <span
-            ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">
-            First Name must be at least 4 characters long
-          </span>
-          <span ng-if="regForm.username.$error.maxlength && regForm.username.$touched">
-            Username must not be longer than 10 characters
-          </span>
-          <br>
-
-        <input type="text" name="lastName" placeholder="Last Name"
-          ng-model="menuFormCtrl.user.lastName"
-          required
-          minlength="4"
-          ng-maxlength="10">
-          <span
-            ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">
-            Last Name must be at least 4 characters long
-          </span>
-          <span ng-if="regForm.username.$error.maxlength && regForm.username.$touched">
-            Username must not be longer than 10 characters
-          </span>
-          <br>
-
-        <input type="email" name="email" placeholder="Email"
-          ng-model="menuFormCtrl.user.email"
-          required>
-          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
-            Must be a valid email address: handle@domain format
-          </span>
-          <br>
-
-        <input type="text" name="phone" placeholder="Phone ###-###-####"
-          ng-model="menuFormCtrl.user.phone"
-          pattern="(\d{3})-(\d{3})-(\d{4})">
-          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
-            Phone must be in the format ###-###-####.
-          </span>
-          <br>
-
-          <input type="text" name="menuNumber" placeholder="Menu Number"
-            ng-model="menuFormCtrl.user.menuNumber"
-            required
-            maxlength="2">
-            <span
-              ng-if="(regForm.menuNumber.$error.minlength || regForm.menuNumber.$error.required) && regForm.menuNumber.$touched">
-              First Name must be at least 4 characters long
-            </span>
-            <span ng-if="regForm.username.$error.maxlength && regForm.username.$touched">
-              Username must not be longer than 10 characters
-            </span>
-            <br>
-      </form>
-    </fieldset>
-
-    <div id="info" ng-if="regForm.$valid">
-
-      <button ui-sref="public.menuitems({category: '{{ menuFormCtrl.user.menuNumber.toUpperCase() }}'})">Register</button>
     </div>
+
+
+    <br>
+
+    <div ng-if="signUpCtrlForm.registration">
+      <div>Your information has been saved.</div>
+    </div>
+
+
+
+
+
+  </form>
+
 
 </div>

@@ -1,3 +1,37 @@
 <div class="container">
-  <h2>Signed Up user's information</h2>
+  <h2>
+    My Info
+  </h2>
+
+  <div class="row">
+
+    Fist Name: {{myInfoCtrl.firstName}}
+    <br>
+    Last Name: {{myInfoCtrl.lastName}}
+    <br>
+    E-mail: {{myInfoCtrl.email}}
+    <br>
+    Phone Number: {{myInfoCtrl.phoneNumber}}
+    <br>
+    Menu Code: {{myInfoCtrl.menuCode}}
+
+
+    <br><br><br>
+
+
+
+
+    <div class="col-md-6" ng-repeat="item in myInfoCtrl.personalDish1.menu_items">
+      <div class="col-md-6 pull-right">
+
+        <h3>{{item.name}}</h3>
+        <p>{{item.description}}</p>
+        </div>
+
+        <img class="img-responsive" ng-src="https://ajaouani-course5.herokuapp.com/images/{{item.short_name}}.jpg" class="pull-left">
+
+    </div>
+
+
+  </div>
 </div>

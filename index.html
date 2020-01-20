@@ -51,12 +51,11 @@
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
               <li>
-                <a ui-sref="public.myinfo">
+                <a ui-sref="public.myInfo">
                   <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> My Info</a>
               </li>
               <li>
-                <!-- href="#" -->
-                <a ui-sref="public.signupform">
+                <a ui-sref="public.signUpForm">
                   <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign Up</a>
               </li>
               <li id="phone" class="hidden-xs">
@@ -126,6 +125,8 @@
     <script src="src/common/loading/loading.interceptor.js"></script>
     <script src="src/common/menu.service.js"></script>
 
+    <script src="src/common/user.service.js"></script>
+
     <!-- Public Module -->
     <script src="src/public/public.module.js"></script>
     <script src="src/public/public.routes.js"></script>
@@ -134,8 +135,9 @@
     <script src="src/public/menu-items/menu-items.controller.js"></script>
     <script src="src/public/menu-item/menu-item.component.js"></script>
 
-    <script src="src/public/menu-sign-up-form/menu-sign-up-form.controller.js"></script>
 
+
+    <script src="src/public/menu-sign-up-form/menu-sign-up-form.controller.js"></script>
     <script src="src/public/menu-my-info/menu-my-info.controller.js"></script>
 
     <!-- ADMIN SITE -->

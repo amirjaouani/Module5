@@ -27,14 +27,6 @@ function MenuService($http, ApiPath) {
     });
   };
 
-
-
-  service.getForm = function () {
-    
-    return true;
-  };
-
-
 }
 
 

@@ -41,25 +41,20 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
-    .state('public.signupform', {
-      url: '/signupform',
+    .state('public.signUpForm', {
+      url: '/signUpForm',
       templateUrl: 'src/public/menu-sign-up-form/menu-sign-up-form.html',
-      controller: 'MenuFormController',
-      controllerAs: 'menuFormCtrl',
-      resolve: {
-        menuForm: ['MenuService', function (MenuService) {
-          return MenuService.getForm();
-        }]
-      }
+      controller: 'SignUpFormController',
+      controllerAs: 'signUpCtrlForm'
     })
-    .state('public.myinfo', {
-      url: '/myinfo/{category}',
+    .state('public.myInfo', {
+      url: '/myInfo',
       templateUrl: 'src/public/menu-my-info/menu-my-info.html',
-      controller: 'MenuMyInfoController',
-      controllerAs: 'menuMyInfoCtrl',
+      controller: 'MyInfoController',
+      controllerAs: 'myInfoCtrl',
       resolve: {
-        menuForm: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-          return MenuService.getMenuItems($stateParams.category);
+        myUser: ['UserService', function (UserService) {
+          return UserService.getUser();
         }]
       }
     });
