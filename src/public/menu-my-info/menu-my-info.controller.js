@@ -9,17 +9,24 @@ function MyInfoController(myUser) {
   var $ctrl = this;
 
 
-  
-
-  $ctrl.firstName = myUser.firstName;
-  $ctrl.lastName = myUser.lastName;
-  $ctrl.email = myUser.email;
-  $ctrl.phoneNumber = myUser.phoneNumber;
-  $ctrl.menuCode = myUser.menuCode;
 
 
+  if(myUser){
 
-  $ctrl.personalDish1 = myUser.personalDish1;
+    $ctrl.firstName = myUser.firstName;
+    $ctrl.lastName = myUser.lastName;
+    $ctrl.email = myUser.email;
+    $ctrl.phoneNumber = myUser.phoneNumber;
+    $ctrl.menuCode = myUser.menuCode;
+
+
+
+    $ctrl.personalDish1 = myUser.personalDish1;
+    $ctrl.valoriz = true;
+  }else {
+    $ctrl.valoriz = false;
+  }
+
 
 
 }

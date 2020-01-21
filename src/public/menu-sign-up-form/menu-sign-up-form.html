@@ -27,7 +27,7 @@
 
       <br>
       Phone Number:
-      <input type="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="###-###-###" ng-model="signUpCtrlForm.phoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})" class="form-control" style="width:50%" required>
+      <input type="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="###-###-####" ng-model="signUpCtrlForm.phoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})" class="form-control" style="width:50%" required>
       <span ng-if="formToSignUp.phoneNumber.$invalid && formToSignUp.phoneNumber.$touched"
             style="color: red">Invalid phone number</span>
 
@@ -40,15 +40,18 @@
       <br>
       <button class="btn btn-warning" ng-disabled="formToSignUp.$invalid" ng-click="signUpCtrlForm.signUp($event)">Submit</button>
 
+      <br><br>
+
+      <div ng-if="signUpCtrlForm.registration">
+        <div>Your information has been saved.</div>
+      </div>
 
     </div>
 
 
-    <br>
 
-    <div ng-if="signUpCtrlForm.registration">
-      <div>Your information has been saved.</div>
-    </div>
+
+
 
 
 

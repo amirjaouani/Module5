@@ -1,9 +1,12 @@
 <div class="container">
-  <h2>
-    My Info
-  </h2>
 
-  <div class="row">
+
+  <div class="row" ng-if="myInfoCtrl.valoriz">
+
+    <h2>
+      My Info
+    </h2>
+
 
     Fist Name: {{myInfoCtrl.firstName}}
     <br>
@@ -21,8 +24,9 @@
 
 
 
-    <div class="col-md-6" ng-repeat="item in myInfoCtrl.personalDish1.menu_items">
-      <div class="col-md-6 pull-right">
+    <div class="col-md-8" ng-repeat="item in myInfoCtrl.personalDish1.menu_items">
+      <br>
+      <div class="col-md-8 pull-right">
 
         <h3>{{item.name}}</h3>
         <p>{{item.description}}</p>
@@ -34,4 +38,11 @@
 
 
   </div>
+
+
+  <div ng-if="!myInfoCtrl.valoriz">
+    Not Signed Up Yet. <a ui-sref="public.signUpForm">Sign up Now!</a>
+  </div>
+
+
 </div>

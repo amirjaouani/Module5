@@ -4,8 +4,8 @@
 angular.module('public')
 .controller('SignUpFormController', SignUpFormController);
 
-SignUpFormController.$inject = ['UserService', 'MenuService'];
-function SignUpFormController(UserService, MenuService) {
+SignUpFormController.$inject = ['UserInfoService', 'MenuService'];
+function SignUpFormController(UserInfoService, MenuService) {
   var $ctrl = this;
 
   $ctrl.signUp = function(event){
@@ -27,11 +27,10 @@ function SignUpFormController(UserService, MenuService) {
     MenuService.getMenuItems($ctrl.menuCode.toUpperCase())
         .then(function(result) {
           newUser.personalDish1 = result;
-          UserService.setUser(newUser);
+          UserInfoService.setUser(newUser);
           $ctrl.registration = true;
         })
         .catch(function(error) {
-          UserService.setUser(newUser);
           $ctrl.registration = false;
         });
 

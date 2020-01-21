@@ -2,10 +2,10 @@
 "use strict";
 
 angular.module('common')
-.service('UserService', UserService);
+.service('UserInfoService', UserInfoService);
 
 
-function UserService() {
+function UserInfoService() {
   var service = this;
 
   var newUser;
